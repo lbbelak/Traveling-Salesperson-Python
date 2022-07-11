@@ -114,6 +114,10 @@ def main(file_path: str):
         for i, location in enumerate(data):
             city = [location['name'], location['latitude'], location['longitude']]
             cities.append(city)
+    if len(cities) == 1:
+        print(cities[0][0])
+        print("You havent even left the city")
+        return 0
     all_paths = get_distances(cities)
     graph = make_graph(all_paths)
     make_vertices(all_paths, graph)
